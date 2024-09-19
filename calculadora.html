@@ -5,121 +5,136 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap" rel="stylesheet">
     <title>Calculadora</title>
-
     <style>
-        *{
+        /* Remove margens e preenchimentos padrão para todos os elementos */
+        * {
             margin: 0;
             padding: 0;
         }
-        .fundo{
+        /* Define o fundo da página com um gradiente */
+        .fundo {
             background-image: linear-gradient(45deg, black, rgb(10, 26, 49));
-            height: 100vh;
-            color: #fff;
-            font-family: 'Montserrat';
-            text-align: center;
+            height: 100vh; /* Altura total da viewport */
+            color: #fff; /* Cor do texto */
+            font-family: 'Montserrat'; /* Fonte usada na página */
+            text-align: center; /* Alinha o texto ao centro */
         }
-        .calculadora{
-            position: absolute;
-            background-color: rgba(0,0,0,0.8);
+        /* Estilo para a calculadora */
+        .calculadora {
+            position: absolute; /* Posiciona a calculadora no centro da página */
+            background-color: rgba(0,0,0,0.8); /* Cor de fundo com transparência */
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
-            border-radius: 15px;
-            padding: 15px;
+            transform: translate(-50%, -50%); /* Centraliza a calculadora */
+            border-radius: 15px; /* Bordas arredondadas */
+            padding: 15px; /* Espaçamento interno */
         }
-        .botao{
-            width: 50px;
-            height: 50px;
-            font-size: 25px;
-            cursor: pointer;
-            margin: 2px;
-            background-color: rgb(31,31,31);
-            border: none;
-            color: #fff;
+        /* Estilo para os botões */
+        .botao {
+            width: 50px; /* Largura dos botões */
+            height: 50px; /* Altura dos botões */
+            font-size: 25px; /* Tamanho da fonte dentro dos botões */
+            cursor: pointer; /* Cursor de ponteiro ao passar sobre o botão */
+            margin: 2px; /* Espaçamento entre os botões */
+            background-color: rgb(31,31,31); /* Cor de fundo dos botões */
+            border: none; /* Remove a borda padrão */
+            color: #fff; /* Cor do texto dentro dos botões */
         }
-        .botao:hover{
-            background-color: black;
+        /* Estilo para o efeito de hover nos botões */
+        .botao:hover {
+            background-color: black; /* Cor de fundo ao passar o mouse */
         }
-        #resultado{
-            background-color: white;
-            width: 207px;
-            height: 30px;
-            margin: 5px;
-            font-size: 25px;
-            color:black ;
-            text-align: right;
-            padding: 5px;
+        /* Estilo para o campo de resultado */
+        #resultado {
+            background-color: white; /* Cor de fundo do campo de resultado */
+            width: 207px; /* Largura do campo de resultado */
+            height: 30px; /* Altura do campo de resultado */
+            margin: 5px; /* Espaçamento ao redor do campo */
+            font-size: 25px; /* Tamanho da fonte no campo */
+            color: black; /* Cor do texto */
+            text-align: right; /* Alinha o texto à direita */
+            padding: 5px; /* Espaçamento interno */
         }
     </style>
 </head>
 <body>
 
     <div class="fundo">
-    <h1>Bernardo Coutinho</h1>
-    <div class="calculadora">
-        <h1>Calculadora</h1>
-        <p id="resultado"></p>
-        <table>
-        
-            <tr>
-            <td><button class="botao" onclick="clean()">C</button></td>
-            <td><button class="botao" onclick="back()"><</button></td>
-            <td><button class="botao" onclick="insert('/')">/</button></td>
-            <td><button class="botao" onclick="insert('*')">*</button></td>
-        </tr>
-        
-        <tr>
-            <td><button class="botao" onclick="insert('7')">7</button></td>
-            <td><button class="botao" onclick="insert('8')">8</button></td>
-            <td><button class="botao" onclick="insert('9')">9</button></td>
-            <td><button class="botao" onclick="insert('-')">-</button></td>
-        </tr>
-        
-        <tr>
-            <td><button class="botao" onclick="insert('4')">4</button></td>
-            <td><button class="botao" onclick="insert('5')">5</button></td>
-            <td><button class="botao" onclick="insert('6')">6</button></td>
-            <td><button class="botao" onclick="insert('+')">+</button></td>
-        </tr>
-        
-        <tr>
-            <td><button class="botao" onclick="insert('1')">1</button></td>
-            <td><button class="botao" onclick="insert('2')">2</button></td>
-            <td><button class="botao" onclick="insert('3')">3</button></td>
-            <td rowspan="2"><button class="botao" style="height: 106px;" onclick="calcular()">=</button></td>
-        </tr>
-        
-        <tr>
-            <td colspan="2"><button class="botao" style="width: 106px;" onclick="insert('1')">0</button></td>
-            <td><button class="botao" onclick="insert('.')">.</button></td>
-        </tr>
-
-       </table>
+        <h1>Calculadora por Bernardo Coutinho</h1>
+        <p>Modificações com a ajuda de Gabriel Oliveira</p>
+        <div class="calculadora">
+            <h1>Calculadora</h1>
+            <p id="resultado"></p> <!-- Campo onde o resultado e os números são exibidos -->
+            <table>
+                <!-- Linha dos botões de operação e limpeza -->
+                <tr>
+                    <td><button class="botao" onclick="clean()">C</button></td> <!-- Botão para limpar o campo -->
+                    <td><button class="botao" onclick="back()"><</button></td> <!-- Botão para apagar o último caractere -->
+                    <td><button class="botao" onclick="insert('/')">/</button></td> <!-- Botão para divisão -->
+                    <td><button class="botao" onclick="insert('*')">*</button></td> <!-- Botão para multiplicação -->
+                </tr>
+                <!-- Linha dos botões numéricos e de subtração -->
+                <tr>
+                    <td><button class="botao" onclick="insert('7')">7</button></td> <!-- Botão para o número 7 -->
+                    <td><button class="botao" onclick="insert('8')">8</button></td> <!-- Botão para o número 8 -->
+                    <td><button class="botao" onclick="insert('9')">9</button></td> <!-- Botão para o número 9 -->
+                    <td><button class="botao" onclick="insert('-')">-</button></td> <!-- Botão para subtração -->
+                </tr>
+                <!-- Linha dos botões numéricos e de adição -->
+                <tr>
+                    <td><button class="botao" onclick="insert('4')">4</button></td> <!-- Botão para o número 4 -->
+                    <td><button class="botao" onclick="insert('5')">5</button></td> <!-- Botão para o número 5 -->
+                    <td><button class="botao" onclick="insert('6')">6</button></td> <!-- Botão para o número 6 -->
+                    <td><button class="botao" onclick="insert('+')">+</button></td> <!-- Botão para adição -->
+                </tr>
+                <!-- Linha dos botões numéricos e do botão de igual -->
+                <tr>
+                    <td><button class="botao" onclick="insert('1')">1</button></td> <!-- Botão para o número 1 -->
+                    <td><button class="botao" onclick="insert('2')">2</button></td> <!-- Botão para o número 2 -->
+                    <td><button class="botao" onclick="insert('3')">3</button></td> <!-- Botão para o número 3 -->
+                    <td rowspan="2"><button class="botao" style="height: 106px;" onclick="calcular()">=</button></td> <!-- Botão para calcular o resultado -->
+                </tr>
+                <!-- Linha do botão zero e ponto decimal -->
+                <tr>
+                    <td colspan="2"><button class="botao" style="width: 106px;" onclick="insert('0')">0</button></td> <!-- Botão para o número 0 -->
+                    <td><button class="botao" onclick="insert('.')">.</button></td> <!-- Botão para o ponto decimal -->
+                </tr>
+            </table>
+        </div>
     </div>
-</div>
-<script>
-    function insert(num)
-    {
-        var numero = document.getElementById('resultado').innerHTML;
-        document.getElementById('resultado').innerHTML;
-        document.getElementById('resultado').innerHTML = resultado.substring(0,resultado.length -1);
-    }
-    function calcular()
-    {
-        var resultado = document.getElementById('resultado').innerHTML;
-        if(resultado)
-        {
-            document.getElementsById('resultado').innerHTML=eval(resultado)
+
+    <script>
+        // Função para inserir números e operadores no campo de resultado
+        function insert(num) {
+            var resultado = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML += num; // Adiciona o valor clicado ao campo de resultado
         }
-        else
-        {
-            document.getElementById('resultado').innerHTML = "Nada..."
+
+        // Função para limpar o campo de resultado
+        function clean() {
+            document.getElementById('resultado').innerHTML = ''; // Limpa o campo de resultado
         }
-    }
-</script>
+
+        // Função para apagar o último caractere do campo de resultado
+        function back() {
+            var resultado = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length - 1); // Remove o último caractere
+        }
+
+        // Função para calcular o resultado da expressão matemática
+        function calcular() {
+            var resultado = document.getElementById('resultado').innerHTML;
+            try {
+                // Avalia a expressão e exibe o resultado
+                document.getElementById('resultado').innerHTML = eval(resultado);
+            } catch {
+                // Exibe mensagem de erro se a expressão for inválida
+                document.getElementById('resultado').innerHTML = 'Erro';
+            }
+        }
+    </script>
 </body>
 </html>
